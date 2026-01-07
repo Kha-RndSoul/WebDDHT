@@ -1,0 +1,60 @@
+## Visual Studio
+.vs/
+*. suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+## NuGet Packages
+*.nupkg
+**/packages/*
+! **/packages/build/
+*. nuget.props
+*.nuget. targets
+
+## Visual Studio cache/options
+. vs/
+
+## Database files
+*.mdf
+*.ldf
+*.ndf
+App_Data/*. mdf
+App_Data/*.ldf
+
+## User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln. docstates
+
+## Uploads folder
+Uploads/
+uploads/
+App_Data/
+
+## Logs
+*.log
+logs/
+
+## OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+## JetBrains Rider
+. idea/
+*. sln.iml
