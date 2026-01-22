@@ -11,6 +11,11 @@ namespace Shop.Models
         public string Comment { get; set; }
         public bool Status { get; set; }
         public DateTime CreatedAt { get; set; }
+       
+        // Navigation Properties
+        public virtual Product Product { get; set; }
+        public virtual Customer Customer { get; set; }
+
         public ProductReview()
         {
         }

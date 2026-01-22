@@ -18,9 +18,24 @@ namespace Shop.Models
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
         public List<ProductImage> Images { get; set; }
+        
+        // Navigation Properties
+        public virtual Category Category { get; set; }
+        public virtual Brand Brand { get; set; }
+        public virtual ICollection<ProductImage> ProductImages { get; set; }
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public virtual ICollection<CartItem> CartItems { get; set; }
+        public virtual ICollection<ProductReview> ProductReviews { get; set; }
+
+        
         public Product()
         {
+            ProductImages = new List<ProductImage>();
+            OrderDetails = new List<OrderDetail>();
+            CartItems = new List<CartItem>();
+            ProductReviews = new List<ProductReview>();
         }
+        
         public Product(int id, string productName, string description, int categoryId,
                       int brandId, double price, double salePrice, int stockQuantity,
                       int soldCount, bool isActive)

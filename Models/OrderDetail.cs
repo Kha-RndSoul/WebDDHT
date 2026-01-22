@@ -12,9 +12,11 @@ namespace Shop.Model
 		public decimal SubTotal { get; set; }
 		public DateTime? CreatedAt { get; set; }
 		public DateTime? UpdatedAt { get; set; }
+        // Navigation Properties
+        public virtual Order Order { get; set; }
+        public virtual Product Product { get; set; }
 
-	
-		public OrderDetail()
+        public OrderDetail()
 		{
 		}
 

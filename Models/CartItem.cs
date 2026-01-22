@@ -10,9 +10,11 @@ namespace Shop.Model
 		public int Quantity { get; set; }
 		public DateTime? AddedAt { get; set; }
 		public DateTime? UpdatedAt { get; set; }
+        // Navigation Properties
+        public virtual Customer Customer { get; set; }
+        public virtual Product Product { get; set; }
 
-	
-		public CartItem()
+        public CartItem()
 		{
 		}
 

@@ -2,10 +2,7 @@ using System;
 
 namespace Shop.Models
 {
-	/// <summary>
-	/// Model class for customers table
-	/// Represents a customer in the system
-	/// </summary>
+	
 	public class Customer
 	{
 		// Properties matching database columns
@@ -17,17 +14,22 @@ namespace Shop.Models
 		public string Address { get; set; }
 		public DateTime CreatedAt { get; set; }
 		public DateTime UpdatedAt { get; set; }
+        
+		// Navigation Properties 
+        public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<CartItem> CartItems { get; set; }
+        public virtual ICollection<ProductReview> ProductReviews { get; set; }
+        public virtual ICollection<ContactMessage> ContactMessages { get; set; }
 
-		// Constructors
-
-		public Customer()
-		{
-		}
-
-		/// <summary>
-		/// Constructor for new customer registration (without ID)
-		/// </summary>
-		public Customer(string email, string passwordHash, string fullName, string phone, string address)
+        public Customer()
+        {
+            Orders = new List<Order>();
+            CartItems = new List<CartItem>();
+            ProductReviews = new List<ProductReview>();
+            ContactMessages = new List<ContactMessage>();
+        }
+       
+        public Customer(string email, string passwordHash, string fullName, string phone, string address)
 		{
 			Email = email;
 			PasswordHash = passwordHash;
@@ -36,9 +38,7 @@ namespace Shop.Models
 			Address = address;
 		}
 
-		/// <summary>
-		/// Full constructor with all fields
-		/// </summary>
+		
 		public Customer(int id, string email, string passwordHash, string fullName,
 					   string phone, string address, DateTime createdAt, DateTime updatedAt)
 		{

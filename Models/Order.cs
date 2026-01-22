@@ -17,10 +17,18 @@ namespace Shop.Model
 		public string Note { get; set; }
 		public DateTime? CreatedAt { get; set; }
 		public DateTime? UpdatedAt { get; set; }
-
+        // Navigation Properties
+        public virtual Customer Customer { get; set; }
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public virtual ICollection<OrderCoupon> OrderCoupons { get; set; }
+        public virtual ICollection<PaymentTransaction> PaymentTransactions { get; set; }
+        
 		public Order()
 		{
-		}
+            OrderDetails = new List<OrderDetail>();
+            OrderCoupons = new List<OrderCoupon>();
+            PaymentTransactions = new List<PaymentTransaction>();
+        }
 
 		public Order(
 			int customerId,
