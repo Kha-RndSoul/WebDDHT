@@ -8,9 +8,14 @@ namespace Shop.Models
         public string CategoryName { get; set; }
         public string ImageUrl { get; set; }
         public DateTime CreatedAt { get; set; }
+        // Navigation Properties
+        public virtual ICollection<Product> Products { get; set; }
+
         public Category()
         {
+            Products = new List<Product>();
         }
+
         public Category(int id, string categoryName, string imageUrl)
         {
             Id = id;

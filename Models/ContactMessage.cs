@@ -2,10 +2,7 @@ using System;
 
 namespace Shop.Models
 {
-	/// <summary>
-	/// Model class for contact_messages table
-	/// Represents a contact message from customer or guest
-	/// </summary>
+	
 	public class ContactMessage
 	{
 		// Properties matching database columns
@@ -21,16 +18,14 @@ namespace Shop.Models
 		public string IpAddress { get; set; }
 		public DateTime CreatedAt { get; set; }
 		public DateTime? RepliedAt { get; set; }
+        
+		// Navigation Properties
+        public virtual Customer Customer { get; set; }
 
-		// Constructors
-
-		public ContactMessage()
+        public ContactMessage()
 		{
 		}
 
-		/// <summary>
-		/// Constructor for new message from form (without ID)
-		/// </summary>
 		public ContactMessage(int customerId, string fullName, string email, string phone,
 							 string subject, string message, string ipAddress)
 		{
@@ -41,12 +36,10 @@ namespace Shop.Models
 			Subject = subject;
 			Message = message;
 			IpAddress = ipAddress;
-			Status = "NEW"; // Default status
+			Status = "NEW"; 
 		}
 
-		/// <summary>
-		/// Full constructor with all fields
-		/// </summary>
+		
 		public ContactMessage(int id, int customerId, string fullName, string email,
 							 string phone, string subject, string message, string status,
 							 string adminReply, string ipAddress, DateTime createdAt, DateTime? repliedAt)

@@ -5,10 +5,11 @@
 USE SchoolSuppliesDB;
 GO
 
--- Table: Coupons
-CREATE TABLE shop. Coupons (
+-- Table:  Coupons
+CREATE TABLE shop.Coupons (
     Id INT IDENTITY(1,1) PRIMARY KEY,
     CouponCode NVARCHAR(50) NOT NULL UNIQUE,
+    ImageUrl NVARCHAR(500) NULL,              
     DiscountType NVARCHAR(20) NOT NULL CHECK (DiscountType IN ('PERCENTAGE', 'FIXED_AMOUNT')),
     DiscountValue DECIMAL(10, 2) NOT NULL,
     MinOrderAmount DECIMAL(10, 2) NOT NULL DEFAULT 0,

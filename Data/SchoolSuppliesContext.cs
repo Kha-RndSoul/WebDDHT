@@ -316,11 +316,13 @@ namespace WebDDHT.Data
 				.Property(oc => oc.DiscountAmount)
 				.HasPrecision(15, 2);
 
-			// ========== STRING LENGTHS ==========
-
-			// Ð?m b?o string lengths match v?i database schema
-			// (Ð? config trong Data Annotations, nhýng có th? override ? ðây n?u c?n)
-		}
+            // ========== STRING LENGTHS ==========
+            // Coupon ImageUrl
+            modelBuilder.Entity<Coupon>()
+                .Property(c => c.ImageUrl)
+                .HasMaxLength(500);
+            
+        }
 
 		#endregion
 

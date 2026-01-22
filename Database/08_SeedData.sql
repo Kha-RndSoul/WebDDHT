@@ -1,13 +1,9 @@
 ﻿-- Script: 08_SeedData.sql
 -- Description: Insert Sample Data
--- =============================================
 
 USE SchoolSuppliesDB;
 GO
-
--- ========================================
 -- INSERT BANNERS
--- ========================================
 SET IDENTITY_INSERT shop.Banners ON;
 GO
 
@@ -21,13 +17,10 @@ VALUES
     (6, N'Trao quà tặng-Gửi yêu thương', N'assets/images/banners/banner6.png', 1),
     (7, N'Tết Việt', N'assets/images/banners/banner7.png', 1);
 GO
-
+//chay toi day roi
 SET IDENTITY_INSERT shop.Banners OFF;
 GO
-
--- ========================================
 -- INSERT CATEGORIES
--- ========================================
 SET IDENTITY_INSERT shop.Categories ON;
 GO
 
@@ -46,9 +39,7 @@ GO
 SET IDENTITY_INSERT shop.Categories OFF;
 GO
 
--- ========================================
 -- INSERT BRANDS
--- ========================================
 SET IDENTITY_INSERT shop.Brands ON;
 GO
 
@@ -77,9 +68,7 @@ GO
 SET IDENTITY_INSERT shop.Brands OFF;
 GO
 
--- ========================================
 -- INSERT PRODUCTS (Sample - First 30 products)
--- ========================================
 SET IDENTITY_INSERT shop.Products ON;
 GO
 INSERT INTO shop. Products (Id, ProductName, Description, CategoryId, BrandId, Price, SalePrice, StockQuantity, SoldCount, IsActive)
@@ -119,9 +108,7 @@ GO
 SET IDENTITY_INSERT shop.Products OFF;
 GO
 
--- ========================================
 -- INSERT SAMPLE CUSTOMERS
--- ========================================
 SET IDENTITY_INSERT shop.Customers ON;
 GO
 
@@ -135,9 +122,8 @@ GO
 SET IDENTITY_INSERT shop.Customers OFF;
 GO
 
--- ========================================
 -- INSERT SAMPLE CONTACT MESSAGES
--- ========================================
+
 SET IDENTITY_INSERT shop.ContactMessages ON;
 GO
 

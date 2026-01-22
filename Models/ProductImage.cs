@@ -9,8 +9,11 @@ namespace Shop.Models
 		public string ImageUrl { get; set; }
 		public bool IsPrimary { get; set; }
 		public DateTime CreatedAt { get; set; }
+        
+		// Navigation Properties
+        public virtual Product Product { get; set; }
 
-		public ProductImage()
+        public ProductImage()
 		{
 		}
 		public ProductImage(int id, int productId, string imageUrl, bool isPrimary)
