@@ -230,20 +230,6 @@ namespace WebDDHT.Data
 
 			// ========== INDEXES ==========
 
-			// Category. CategoryName index
-			modelBuilder.Entity<Category>()
-				.Property(c => c.CategoryName)
-				.HasColumnAnnotation("Index",
-					new System.ComponentModel.DataAnnotations.Schema.IndexAnnotation(
-						new System.ComponentModel.DataAnnotations.Schema.IndexAttribute("IX_CategoryName")));
-
-			// Brand.BrandName index
-			modelBuilder.Entity<Brand>()
-				.Property(b => b.BrandName)
-				.HasColumnAnnotation("Index",
-					new System.ComponentModel.DataAnnotations.Schema.IndexAnnotation(
-						new System.ComponentModel.DataAnnotations.Schema.IndexAttribute("IX_BrandName")));
-
 			// Customer.Email unique index
 			modelBuilder.Entity<Customer>()
 				.HasIndex(c => c.Email)
@@ -273,48 +259,6 @@ namespace WebDDHT.Data
 				.HasIndex(ci => new { ci.CustomerId, ci.ProductId })
 				.IsUnique()
 				.HasName("IX_CartItem_CustomerProduct");
-
-			// ========== DECIMAL PRECISION ==========
-
-			// Product prices
-			modelBuilder.Entity<Product>()
-				.Property(p => p.Price)
-				.HasPrecision(10, 2);
-
-			modelBuilder.Entity<Product>()
-				.Property(p => p.SalePrice)
-				.HasPrecision(10, 2);
-
-			// Order amounts
-			modelBuilder.Entity<Order>()
-				.Property(o => o.TotalAmount)
-				.HasPrecision(15, 2);
-
-			modelBuilder.Entity<OrderDetail>()
-				.Property(od => od.UnitPrice)
-				.HasPrecision(15, 2);
-
-			modelBuilder.Entity<OrderDetail>()
-				.Property(od => od.Subtotal)
-				.HasPrecision(15, 2);
-
-			// Payment amounts
-			modelBuilder.Entity<PaymentTransaction>()
-				.Property(pt => pt.Amount)
-				.HasPrecision(10, 2);
-
-			// Coupon discounts
-			modelBuilder.Entity<Coupon>()
-				.Property(c => c.DiscountValue)
-				.HasPrecision(10, 2);
-
-			modelBuilder.Entity<Coupon>()
-				.Property(c => c.MinOrderAmount)
-				.HasPrecision(10, 2);
-
-			modelBuilder.Entity<OrderCoupon>()
-				.Property(oc => oc.DiscountAmount)
-				.HasPrecision(15, 2);
 
             // ========== STRING LENGTHS ==========
             // Coupon ImageUrl

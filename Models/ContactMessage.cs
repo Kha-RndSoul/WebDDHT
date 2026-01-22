@@ -1,6 +1,10 @@
 using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Shop.Models
+
+namespace WebDDHT.Models
 {
 	
 	public class ContactMessage

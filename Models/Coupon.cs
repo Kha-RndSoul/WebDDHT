@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Shop.Model
+namespace WebDDHT.Models
 {
     public class Coupon
     {
