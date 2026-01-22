@@ -1,47 +1,32 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Shop.Model
+namespace WebDDHT.Models
 {
-	public class OrderDetail
-	{
-		public int Id { get; set; }
-		public int OrderId { get; set; }
-		public int ProductId { get; set; }
-		public int Quantity { get; set; }
-		public decimal UnitPrice { get; set; }
-		public decimal SubTotal { get; set; }
-		public DateTime? CreatedAt { get; set; }
-		public DateTime? UpdatedAt { get; set; }
+    [Table("OrderDetails", Schema = "shop")]
+    public class OrderDetail
+    {
+        public int Id { get; set; }
+        public int OrderId { get; set; }
+        public int ProductId { get; set; }
+
+        [Required]
+        [StringLength(200)]
+        public string ProductName { get; set; }
+
+        public decimal UnitPrice { get; set; }   
+        public int Quantity { get; set; }
+        public decimal Subtotal { get; set; }
+
+        public DateTime? CreatedAt { get; set; }
+
         // Navigation Properties
         public virtual Order Order { get; set; }
         public virtual Product Product { get; set; }
 
         public OrderDetail()
-		{
-		}
-
-	
-		public OrderDetail(int orderId, int productId, int quantity, decimal unitPrice)
-		{
-			OrderId = orderId;
-			ProductId = productId;
-			Quantity = quantity;
-			UnitPrice = unitPrice;
-			SubTotal = unitPrice * quantity;
-		}
-
-		public override string ToString()
-		{
-			return $"OrderDetail{{" +
-				   $"Id={Id}, " +
-				   $"OrderId={OrderId}, " +
-				   $"ProductId={ProductId}, " +
-				   $"Quantity={Quantity}, " +
-				   $"UnitPrice={UnitPrice}, " +
-				   $"SubTotal={SubTotal}, " +
-				   $"CreatedAt={CreatedAt}, " +
-				   $"UpdatedAt={UpdatedAt}" +
-				   $"}}";
-		}
-	}
+        {
+        }
+    }
 }
