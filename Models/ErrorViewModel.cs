@@ -1,4 +1,4 @@
-namespace Project_CK.Models
+namespace WebDDHT.Models
 {
     public class ErrorViewModel
     {

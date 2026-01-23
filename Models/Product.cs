@@ -139,6 +139,14 @@ namespace WebDDHT.Models
                    $"UpdatedAt={UpdatedAt}" +
                    $"}}";
         }
+        
+        /// <summary>
+        /// Lấy giá hiện tại (SalePrice nếu có, không thì Price)
+        /// </summary>
+        public decimal GetCurrentPrice()
+        {
+            return (SalePrice > 0 && SalePrice < Price) ? SalePrice : Price;
+        }
 
         /// <summary>
         /// Tính phần trăm giảm giá
@@ -157,14 +165,6 @@ namespace WebDDHT.Models
         public bool IsOnSale()
         {
             return SalePrice > 0 && SalePrice < Price;
-        }
-
-        /// <summary>
-        /// Lấy giá hiện tại (nếu có sale thì lấy sale price, không thì lấy price)
-        /// </summary>
-        public decimal GetCurrentPrice()
-        {
-            return IsOnSale() ? SalePrice : Price;
         }
 
         /// <summary>
