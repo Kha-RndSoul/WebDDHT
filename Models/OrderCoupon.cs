@@ -1,18 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-
 namespace WebDDHT.Models
 {
+    [Table("OrderCoupons", Schema = "shop")]
     public class OrderCoupon
     {
         public int Id { get; set; }
         public int OrderId { get; set; }
         public int CouponId { get; set; }
         public decimal DiscountAmount { get; set; }
-        public DateTime? CreatedAt { get; set; }
+
+        // ⭐ ĐỔI CreatedAt THÀNH AppliedAt
+        public DateTime? AppliedAt { get; set; }
 
         // Navigation Properties  
         public virtual Order Order { get; set; }
@@ -27,6 +28,7 @@ namespace WebDDHT.Models
             OrderId = orderId;
             CouponId = couponId;
             DiscountAmount = discountAmount;
+            AppliedAt = DateTime.Now;
         }
 
         public override string ToString()
@@ -36,7 +38,7 @@ namespace WebDDHT.Models
                    $"OrderId={OrderId}, " +
                    $"CouponId={CouponId}, " +
                    $"DiscountAmount={DiscountAmount}, " +
-                   $"CreatedAt={CreatedAt}" +
+                   $"AppliedAt={AppliedAt}" +
                    $"}}";
         }
     }
